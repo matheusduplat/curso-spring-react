@@ -1,0 +1,53 @@
+.metaflix-pagination-container {
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.metaflix-pagination-box {
+    width: 180px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.metaflix-pagination-box form {
+    width: 100%;
+    display: flex;
+}
+
+.metaflix-pagination-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-primary);
+    cursor: pointer;
+}
+
+.metaflix-pagination-button svg {
+    filter: brightness(0) saturate(100%) invert(26%) sepia(19%) saturate(7395%) hue-rotate(234deg) brightness(89%) contrast(92%);
+}
+
+.metaflix-pagination-button:disabled {
+    border: 1px solid #c2c2c2;
+    cursor: unset;
+}
+
+.metaflix-pagination-button:disabled svg {
+    filter: none;
+}
+
+.metaflix-pagination-container p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--color-primary);
+}
+
+.metaflix-flip-horizontal {
+    transform: rotate(180deg);
+}

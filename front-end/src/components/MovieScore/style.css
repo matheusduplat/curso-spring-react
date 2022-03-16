@@ -1,0 +1,18 @@
+.metaflix-score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.metaflix-score-value {
+    margin: 0;
+    color: #FFBB3A;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.metaflix-score-count {
+    font-size: 12px;
+    color: #989898;
+    margin: 4px 0 10px 0;
+}
