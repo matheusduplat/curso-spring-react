@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './style.css';
 export default function Form() {
     const movie = {
@@ -29,7 +30,9 @@ export default function Form() {
                     </div>
                     <div className="metaflix-form-btn-container">
                         <button type="submit" className="btn btn-primary metaflix-btn">Salvar</button>
-                        <button className="btn btn-primary metaflix-btn ms-3">Cancelar</button>
+                        <Link to={'/'}>
+                            <button className="btn btn-primary metaflix-btn ms-3">Cancelar</button>
+                        </Link>
                     </div>
                 </form >
             </div >

@@ -1,13 +1,13 @@
-package com.mdevelopers.cursospringreact;
+package com.mdevelopers.metaflix;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CursoSpringReactApplication {
+public class MetaflixApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CursoSpringReactApplication.class, args);
+		SpringApplication.run(MetaflixApplication.class, args);
 	}
 
 }
