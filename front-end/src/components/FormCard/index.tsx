@@ -1,8 +1,9 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import { useEffect, useState } from 'react';
-import { Link} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import { Movie } from 'types/movie';
 import { BASE_URL } from 'utils/request';
+import { validateEmail } from 'utils/validate';
 import './style.css';
 
 type Props = {
@@ -11,6 +12,7 @@ type Props = {
 
 export default function FormCard({movieId} : Props) {
      
+    const navigate = useNavigate();
     const [movie, setMovie] = useState<Movie>();
 
     useEffect(() => {
@@ -20,12 +22,38 @@ export default function FormCard({movieId} : Props) {
             })
     },[movieId]);
 
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        const email =  event.currentTarget.email.value;
+        const score =  event.currentTarget.score.value;
+
+        if(!validateEmail(email)){
+            return alert('Email invalido');
+        }
+
+        const config: AxiosRequestConfig = {
+            baseURL: BASE_URL,
+            method: 'PUT',
+            url: '/scores',
+            data: {
+                email: email,
+                movieId: movieId,
+                score: score
+            }
+        }
+        axios(config)
+        .then(response => {
+            navigate("/");
+        });
+    }
+
     return (
         <div className="metaflix-form-container">
             <img className="metaflix-movie-card-image" src={movie?.image} alt={movie?.title} />
             <div className="metaflix-card-bottom-container">
                 <h3>{movie?.title}</h3>
-                <form className="metaflix-form">
+                <form className="metaflix-form" onSubmit={handleSubmit}>
                     <div className="form-group metaflix-form-group">
                         <label htmlFor="email">Informe seu email</label>
                         <input type="email" className="form-control" id="email" />
